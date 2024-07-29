@@ -2,7 +2,7 @@ import MovieCard from "@components/movieCard/MovieCard";
 
 import { IMovie } from "@/types";
 
-import styles from "./style.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props {
   movies?: IMovie[] | null;
