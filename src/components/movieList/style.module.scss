@@ -1,0 +1,20 @@
+.list {
+  width: 100%;
+  padding: 40px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  column-gap: 50px;
+  row-gap: 30px;
+  grid-auto-rows: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+    column-gap: unset;
+  }
+}

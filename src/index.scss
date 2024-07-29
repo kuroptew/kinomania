@@ -1,0 +1,19 @@
+@import "./styles/normalize";
+@import "./styles/colors";
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1400px;
+}
+
+@import "./styles/media";
+
