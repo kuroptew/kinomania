@@ -5,12 +5,12 @@ export interface PaginationProps {
   totalCount: number;
   pageSize: number;
   siblingCount?: number;
-  currentPage:number;
+  currentPage: number;
 }
 
 export const DOTS = "...";
 
-export const usePagination = ({ totalCount, pageSize, siblingCount = 1, currentPage }:PaginationProps) => {
+export const usePagination = ({ totalCount, pageSize, siblingCount = 1, currentPage }: PaginationProps) => {
   const paginationRange = useMemo(() => {
     const totalPageCount = Math.ceil(totalCount / pageSize);
 

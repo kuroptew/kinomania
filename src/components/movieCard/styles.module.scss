@@ -10,6 +10,7 @@
   background-clip: padding-box; /* !importanté */
   border: solid $border transparent; /* !importanté */
   border-radius: 12px;
+  cursor: pointer;
 
   &:before {
     content: "";
@@ -23,8 +24,6 @@
     border-radius: inherit; /* !importanté */
     background: linear-gradient(to right, $main-color, $second-color);
   }
-
-  cursor: pointer;
 }
 
 .poster {
