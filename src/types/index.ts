@@ -63,12 +63,19 @@ export interface MoviesApiResponse {
   docs: IMovie[];
   limit: number;
   page: number;
-  total:number;
+  total: number;
   status: string;
 }
-
 
 export type ParamsType = {
   limit?: number;
   page?: number;
+  country?: string | null;
+  year?: string | null;
+  ageRating?: string | null;
+};
+
+export interface ISelectObj {
+  value: string;
+  label: string;
 }
