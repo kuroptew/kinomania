@@ -1,4 +1,4 @@
-import React from 'react';
+import { ChangeEvent } from 'react';
 
 import styles from "./styles.module.scss";
 
@@ -11,7 +11,7 @@ interface Props {
 }
 
 const SelectLimit = ({ label, limit, onLimitChange, defaultValue, options }: Props) => {
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
     onLimitChange(Number(event.target.value));
   };
 

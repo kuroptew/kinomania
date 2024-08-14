@@ -67,12 +67,16 @@ export interface MoviesApiResponse {
   status: string;
 }
 
-export type ParamsType = {
+export type ParamsTypeMovies = {
   limit?: number;
   page?: number;
   country?: string | null;
   year?: string | null;
   ageRating?: string | null;
+};
+
+export type ParamsTypeSearch = {
+  query: string | null;
 };
 
 export interface ISelectObj {

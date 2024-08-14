@@ -1,0 +1,76 @@
+@import "../../styles/colors";
+
+.wrapper {
+  position: relative;
+  width: 33%;
+}
+
+.search {
+  width: 100%;
+  padding: 12px 6px;
+  font-size: 16px;
+  line-height: 1;
+  border-radius: 8px;
+  border: 1px solid $main-color;
+  color: darkgrey;
+
+  &:focus {
+    outline: none;
+    border-color: $second-color;
+  }
+}
+
+.list {
+  position: absolute;
+  top: 54px;
+  width: 100%;
+  max-height: 150px;
+  overflow-y: scroll;
+  background-color: #fff;
+  border: 1px solid $main-color;
+  border-radius: 8px;
+  z-index: 100;
+
+  &::-webkit-scrollbar {
+    // Width of vertical scroll bar
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: $main-color;
+  }
+}
+
+.item {
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 1px solid $main-color;
+  cursor: pointer;
+
+  span {
+    font-weight: 400;
+    color: $main-color;
+  }
+
+  &:nth-child(2n + 1) {
+    span {
+      font-weight: 400;
+      color: $second-color;
+    }
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.not-found {
+  cursor: default;
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    width: 100%;
+  }
+}
