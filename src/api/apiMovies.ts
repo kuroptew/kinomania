@@ -7,7 +7,7 @@ const BASE_URL = import.meta.env.VITE_KINOPOISK_BASE_API_URL;
 
 export async function getMovies(params?: ParamsType): Promise<MoviesApiResponse> {
   try {
-    const { page= 1, limit = 10 } = params || {};
+    const { page = 1, limit = 10 } = params || {};
 
     const response = await axios.get<MoviesApiResponse>(`${BASE_URL}movie`, {
       headers: {
@@ -22,6 +22,6 @@ export async function getMovies(params?: ParamsType): Promise<MoviesApiResponse>
     return response.data;
   } catch (error) {
     console.log(error);
-    return { docs: [], page: 1, status: "error", limit: 10 };
+    return { docs: [], page: 1, status: "error", limit: 10, total: 0 };
   }
 }

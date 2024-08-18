@@ -63,6 +63,7 @@ export interface MoviesApiResponse {
   docs: IMovie[];
   limit: number;
   page: number;
+  total:number;
   status: string;
 }
 
