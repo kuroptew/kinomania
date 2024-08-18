@@ -16,7 +16,7 @@ import { MoviesApiResponse, ParamsTypeMovies } from "@/types";
 
 import styles from "./styles.module.scss";
 
-const MainPages = () => {
+const MainPage = () => {
   //Пришлось ввести эту константу, для правильной работы пагианции, поскольку АПИ не отдает указанное кол-во фильмов, если брать из ответа total
   const correctTotal = 100;
 
@@ -67,7 +67,6 @@ const MainPages = () => {
   const optionsAges = [{ value: "Все возраста", label: "Все возраста" }, ...agesObj]
 
   return (
-    <div className="container">
       <main className={styles.main}>
         <aside>
           < MovieFilters >
@@ -89,7 +88,7 @@ const MainPages = () => {
           </ MovieFilters>
         </aside>
         {isLoading
-          ? <div>Loading...</div>
+          ? <div>Идет загурзка...</div>
           : <section><div className="wrapper-row">
             <SelectLimit
               label={"Показывать фильмов на странице:"}
@@ -106,8 +105,7 @@ const MainPages = () => {
           </section>
         }
       </main>
-    </div>
   )
 }
 
-export default MainPages;
+export default MainPage;

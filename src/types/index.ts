@@ -59,6 +59,23 @@ export interface IMovie {
   ticketsOnSale: boolean;
 }
 
+interface IPerson {
+  id: number;
+  photo: string;
+  name: string;
+  enName: string;
+  description: string;
+  profession: string;
+  enProfession: string;
+}
+
+type ISimilarMovie = Pick<IMovie, "id" | "name" | "alternativeName" | "poster">;
+
+export interface IMovieByID extends IMovie {
+  persons: IPerson[];
+  similarMovies: ISimilarMovie[];
+}
+
 export interface MoviesApiResponse {
   docs: IMovie[];
   limit: number;

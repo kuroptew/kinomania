@@ -12,11 +12,17 @@
   line-height: 1;
   border-radius: 8px;
   border: 1px solid $main-color;
-  color: darkgrey;
+
+  &::placeholder {
+    color:$second-color;
+  }
 
   &:focus {
     outline: none;
     border-color: $second-color;
+    &::placeholder {
+      color: grey;
+    }
   }
 }
 
@@ -32,7 +38,6 @@
   z-index: 100;
 
   &::-webkit-scrollbar {
-    // Width of vertical scroll bar
     width: 8px;
   }
   &::-webkit-scrollbar-thumb {
