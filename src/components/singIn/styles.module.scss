@@ -2,7 +2,7 @@
 
 .btn {
   padding: 12px;
-  width: 120px;
+  min-width: 120px;
   font-size: 20px;
   line-height: 1;
   background: $main-color;
@@ -11,6 +11,7 @@
   border: none;
   color: #fff;
   border-radius: 8px;
+  white-space: nowrap;
   cursor: pointer;
 
   &:hover {
@@ -21,7 +22,7 @@
 
 @media screen and (max-width: 767px) {
   .btn {
-    width: 100px;
+    min-width: 100px;
     font-size: 16px;
   }
 }

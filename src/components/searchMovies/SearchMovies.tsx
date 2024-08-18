@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 import classnames from 'classnames';
 import { useDebounce } from "@/utils/hooks/useDebounce"
 import { getMoviesBySearch } from "@/api/apiMovies"
@@ -25,6 +26,11 @@ const SearchMovies = () => {
     setIsOpen(true)
   }
 
+  const handleClickLink = () => {
+    setIsOpen(false)
+    setSearch("")
+  }
+
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
 
@@ -35,8 +41,9 @@ const SearchMovies = () => {
 
   useEffect(() => {
     const fetchMovies = async () => {
-      if (debounceSearch.trim() === '') {
+      if (debounceSearch.trim() === "") {
         // Если инпут пустой, возвращаемся и не выполняем запрос
+        setFindedMovies(null);
         return;
       }
 
@@ -50,7 +57,6 @@ const SearchMovies = () => {
     fetchMovies();
   }, [debounceSearch]);
 
-
   //Вычисление того, что должно показываться в листе поиска
   let list;
 
@@ -62,7 +68,7 @@ const SearchMovies = () => {
     list = <ul className={styles.list} ref={refList}>
       {findedMovies.map((movie) => {
         return (
-          <li key={movie.id} className={styles.item} > {movie.name ? movie.name : movie.alternativeName} <span>({movie.year})</span></li>)
+          <Link to={`/movie/${movie.id}`} onClick={handleClickLink} key={movie.id}><li className={styles.item} > {movie.name ? movie.name : movie.alternativeName} <span>({movie.year})</span></li></Link>)
       })
       }
     </ul >
