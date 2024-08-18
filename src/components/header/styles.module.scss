@@ -1,6 +1,5 @@
 @import "../../styles/colors";
 
-
 .header {
   padding: 20px 0;
   border-bottom: 2px solid $main-color;
@@ -15,5 +14,10 @@
 @media screen and (max-width: 767px) {
   .header {
     padding: 15px 0;
+  }
+
+  .wrapper {
+    flex-direction: column;
+    gap: 14px;
   }
 }

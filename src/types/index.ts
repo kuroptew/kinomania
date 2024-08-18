@@ -59,15 +59,44 @@ export interface IMovie {
   ticketsOnSale: boolean;
 }
 
+interface IPerson {
+  id: number;
+  photo: string;
+  name: string;
+  enName: string;
+  description: string;
+  profession: string;
+  enProfession: string;
+}
+
+type ISimilarMovie = Pick<IMovie, "id" | "name" | "alternativeName" | "poster">;
+
+export interface IMovieByID extends IMovie {
+  persons: IPerson[];
+  similarMovies: ISimilarMovie[];
+}
+
 export interface MoviesApiResponse {
   docs: IMovie[];
   limit: number;
   page: number;
+  total: number;
   status: string;
 }
 
-
-export type ParamsType = {
+export type ParamsTypeMovies = {
   limit?: number;
   page?: number;
+  country?: string | null;
+  year?: string | null;
+  ageRating?: string | null;
+};
+
+export type ParamsTypeSearch = {
+  query: string | null;
+};
+
+export interface ISelectObj {
+  value: string;
+  label: string;
 }

@@ -1,13 +1,15 @@
-import logo from "@assets/img/logo/logo 120.png";
+import { Link } from "react-router-dom";
+
+import logo from "@assets/img/logo/logo120.png";
 
 import styles from "./styles.module.scss";
 
 const Logo = () => {
   return (
-    <a href="#" className={styles.logo}>
+    <Link to="/" className={styles.logo}>
       <img src={logo} alt="logo" className={styles.img}/>
       <span className={styles.name}>Киномания</span>
-    </a>
+    </Link>
   )
 };
 

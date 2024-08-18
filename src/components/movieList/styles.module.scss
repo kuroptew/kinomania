@@ -10,11 +10,7 @@
 
 @media screen and (max-width: 767px) {
   .list {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 0 auto;
-    align-items: center;
-    column-gap: unset;
+    grid-template-columns: 1fr;
+    place-items: center;
   }
 }
