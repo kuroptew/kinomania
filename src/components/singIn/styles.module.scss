@@ -1,0 +1,28 @@
+@import "../../styles/colors";
+
+.btn {
+  padding: 12px;
+  width: 120px;
+  font-size: 20px;
+  line-height: 1;
+  background-color: $main-color;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+  border: none;
+  color:#fff;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background: $second-color;
+    color:#000;
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  .btn {
+    width: 100px;
+    font-size: 16px;
+  }
+}
