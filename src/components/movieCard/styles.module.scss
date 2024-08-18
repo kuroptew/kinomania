@@ -1,15 +1,17 @@
 @import "../../styles/colors";
 
+$border: 2px;
+$border-radius: 12px;
+
+
 .card {
   position: relative;
   padding-bottom: 25px;
   box-sizing: border-box;
-
-  $border: 2px;
   background: #fff;
   background-clip: padding-box; /* !importanté */
   border: solid $border transparent; /* !importanté */
-  border-radius: 12px;
+  border-radius: $border-radius;
   cursor: pointer;
 
   &:before {
@@ -32,7 +34,7 @@
   width: 100%;
   height: 430px;
   object-fit: cover;
-  border-radius: 12px 12px 0 0;
+  border-radius: calc($border-radius - $border) calc($border-radius - $border) 0 0;
 }
 
 .info {

@@ -42,7 +42,7 @@ const MainPage = () => {
   const agesOrdinaryObj = createSelectObj(agesOrdinary);
   const intervalsAgesObj = createSelectObj(generateAgesIntervals(agesOrdinary));
   const agesObj = [...agesOrdinaryObj, ...intervalsAgesObj];
-  
+
   const [limit, setLimit] = useState(10)
   const [currentPage, setCurrentPage] = useState(1);
   const [country, setCountry] = useState<string | null>(null);
@@ -62,49 +62,64 @@ const MainPage = () => {
     setLimit(newLimit);
   };
 
+  const handleCountryChange = (newCountry: string) => {
+    setCurrentPage(1)
+    setCountry(newCountry);
+  };
+
+  const handleYearChange = (newYear: string) => {
+    setCurrentPage(1)
+    setYear(newYear);
+  };
+
+  const handleAgeRatingChange = (newAgeRating: string) => {
+    setCurrentPage(1)
+    setAgeRating(newAgeRating);
+  };
+
   const optionsCountries = [{ value: "Все страны", label: "Все страны" }, ...countriesObj]
   const optionsYears = [{ value: "Все годы", label: "Все годы" }, ...yearsObj]
   const optionsAges = [{ value: "Все возраста", label: "Все возраста" }, ...agesObj]
 
   return (
-      <main className={styles.main}>
-        <aside>
-          < MovieFilters >
-            <SelectFilter
-              title={"Страна"}
-              options={optionsCountries}
-              handleChange={setCountry}
-            />
-            <SelectFilter
-              title={"Год"}
-              options={optionsYears}
-              handleChange={setYear}
-            />
-            <SelectFilter
-              title={"Возрастной рейтинг"}
-              options={optionsAges}
-              handleChange={setAgeRating}
-            />
-          </ MovieFilters>
-        </aside>
-        {isLoading
-          ? <div>Идет загурзка...</div>
-          : <section><div className="wrapper-row">
-            <SelectLimit
-              label={"Показывать фильмов на странице:"}
-              limit={limit}
-              onLimitChange={handleLimitChange}
-              options={[4, 10, 20]} />
-            <Pagination
-              currentPage={currentPage}
-              totalCount={data!.total - correctTotal}
-              pageSize={limit}
-              onPageChange={page => setCurrentPage(page)} />
-          </div>
-            {data!.docs.length > 0 ? <MovieList movies={data && data.docs} /> : <div>Нет фильмов</div>}
-          </section>
-        }
-      </main>
+    <main className={styles.main}>
+      <aside>
+        < MovieFilters >
+          <SelectFilter
+            title={"Страна"}
+            options={optionsCountries}
+            handleChange={handleCountryChange}
+          />
+          <SelectFilter
+            title={"Год"}
+            options={optionsYears}
+            handleChange={handleYearChange}
+          />
+          <SelectFilter
+            title={"Возрастной рейтинг"}
+            options={optionsAges}
+            handleChange={handleAgeRatingChange}
+          />
+        </ MovieFilters>
+      </aside>
+      {isLoading
+        ? <div>Идет загрузка...</div>
+        : <section><div className="wrapper-row">
+          <SelectLimit
+            label={"Показывать фильмов на странице:"}
+            limit={limit}
+            onLimitChange={handleLimitChange}
+            options={[4, 10, 20]} />
+          <Pagination
+            currentPage={currentPage}
+            totalCount={data!.total - correctTotal}
+            pageSize={limit}
+            onPageChange={page => setCurrentPage(page)} />
+        </div>
+          {data!.docs.length > 0 ? <MovieList movies={data && data.docs} /> : <div>Нет фильмов</div>}
+        </section>
+      }
+    </main>
   )
 }
 
