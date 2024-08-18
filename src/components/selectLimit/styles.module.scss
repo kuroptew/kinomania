@@ -21,7 +21,7 @@
   font: inherit;
   width: 60px;
   padding: 10px;
-  background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg) no-repeat right 10px center / 20px,
+  background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg) no-repeat right 5px center / 20px,
     linear-gradient(to left, $main-color 10%, $second-color 90%);
   color: white;
   border-radius: 4px;
@@ -36,4 +36,10 @@
 .option {
   color: inherit;
   background:$main-color;
+}
+
+@media screen and (max-width: 575px) {
+  .wrapper {
+    flex-direction:column;
+  }
 }

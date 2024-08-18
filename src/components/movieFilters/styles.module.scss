@@ -1,0 +1,10 @@
+@import "../../styles/colors";
+
+.filters {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: linear-gradient(0.15turn, $main-color, $second-color);
+  border-radius: 12px;
+}
