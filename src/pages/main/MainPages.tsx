@@ -12,7 +12,7 @@ import MovieFilters from "@/components/movieFilters/MovieFilters";
 import SelectFilter from "@/components/selectFilter/selectFilter";
 
 import { getMovies } from "@/api/apiMovies";
-import { MoviesApiResponse, ParamsType } from "@/types";
+import { MoviesApiResponse, ParamsTypeMovies } from "@/types";
 
 import styles from "./styles.module.scss";
 
@@ -49,7 +49,7 @@ const MainPages = () => {
   const [year, setYear] = useState<string | null>(null);
   const [ageRating, setAgeRating] = useState<string | null>(null)
 
-  const { data, isLoading } = useFetch<MoviesApiResponse, ParamsType>(getMovies, {
+  const { data, isLoading } = useFetch<MoviesApiResponse, ParamsTypeMovies>(getMovies, {
     page: currentPage,
     limit: limit,
     country: country === "Все страны" ? null : country,

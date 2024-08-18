@@ -1,11 +1,11 @@
 import axios from "axios";
 
-import { MoviesApiResponse, ParamsType } from "@/types";
+import { MoviesApiResponse, ParamsTypeMovies, ParamsTypeSearch } from "@/types";
 
 const API_KEY = import.meta.env.VITE_KINOPOISK_API_KEY;
 const BASE_URL = import.meta.env.VITE_KINOPOISK_BASE_API_URL;
 
-export async function getMovies(params?: ParamsType): Promise<MoviesApiResponse> {
+export async function getMovies(params?: ParamsTypeMovies): Promise<MoviesApiResponse> {
   try {
     const { page = 1, limit = 10, country, year, ageRating } = params || {};
 
@@ -19,6 +19,26 @@ export async function getMovies(params?: ParamsType): Promise<MoviesApiResponse>
         "countries.name":country,
         year,
         ageRating
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    return { docs: [], page: 1, status: "error", limit: 10, total: 0 };
+  }
+}
+
+export async function getMoviesBySearch(params?: ParamsTypeSearch): Promise<MoviesApiResponse> {
+  try {
+    const { query } = params || {};
+
+    const response = await axios.get<MoviesApiResponse>(`${BASE_URL}movie/search`, {
+      headers: {
+        "X-API-KEY": API_KEY,
+      },
+      params: {
+        query
       },
     });
 

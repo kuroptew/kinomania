@@ -7,7 +7,6 @@ interface Props {
   movie: IMovie;
 }
 
-
 const MovieCard = ({ movie }: Props) => {
   const imgSrc = movie.poster
     ? movie.poster.previewUrl ? movie.poster.previewUrl : defaultPoster

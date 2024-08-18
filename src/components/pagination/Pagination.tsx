@@ -34,6 +34,7 @@ const Pagination = ({
   };
 
   const lastPage = paginationRange[paginationRange.length - 1];
+  
   return (
     <div
       className={styles.pagination}
@@ -50,7 +51,6 @@ const Pagination = ({
         if (pageNumber === DOTS) {
           return <button key={index} className={styles.dots}>&#8230;</button>;
         }
-
 
         return (
           <button

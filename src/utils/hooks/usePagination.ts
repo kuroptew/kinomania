@@ -27,7 +27,7 @@ export const usePagination = ({ totalCount, pageSize, siblingCount = 1, currentP
     }
 
     /*
-    	Вычисляем левый и правый одноуровневый индекс и убедитесь, что они находятся в пределах диапазона 1 и totalPageCount.
+    	Вычисляем левый и правый одноуровневый индекс и убеждаемся, что они находятся в пределах диапазона 1 и totalPageCount.
     */
     const leftSiblingIndex = Math.max(currentPage - siblingCount, 1);
     const rightSiblingIndex = Math.min(currentPage + siblingCount, totalPageCount);
