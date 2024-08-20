@@ -116,7 +116,11 @@ const MainPage = () => {
             pageSize={limit}
             onPageChange={page => setCurrentPage(page)} />
         </div>
-          {data!.docs.length > 0 ? <MovieList movies={data && data.docs} /> : <div>Нет фильмов</div>}
+          {data?.status === "error"
+            ? <div>Произошла ошибка на сервере</div>
+            : data!.docs.length > 0
+              ? <MovieList movies={data && data.docs} />
+              : <div>Нет фильмов</div>}
         </section>
       }
     </main>
