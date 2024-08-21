@@ -65,7 +65,12 @@ const MoviePage = () => {
         : (data?.status === "error" || movie === null ? <div>Информация о фильме не найдена или произошла ошибка на сервере</div> : <section className={styles["movie-info"]}>
           <img src={movie.imgSrc} alt="Poster" className={styles.poster} />
           <div className={styles.text}>
-            <h2 className={styles.title}>Название: {movie.title ? <span>{movie.title} / ({movie.alternativeTitle})</span> : <span>{movie.alternativeTitle}</span>}</h2>
+            <h2 className={styles.title}>
+              Название:  
+              {movie.title && movie.alternativeTitle ? 
+              <span> {movie.title} / ({movie.alternativeTitle})</span>
+              : movie.title ? <span> {movie.title}</span>
+              : <span> {movie.alternativeTitle}</span>}</h2>
             <div className={styles.year}>Год выпуска: <span>{movie.year}</span></div>
             <div className={styles.genres}>Жанры: <span>{movie.genresMovie}</span></div>
             <div className={styles.countries}>Производство: <span>{movie.countriesMovie}</span></div>
